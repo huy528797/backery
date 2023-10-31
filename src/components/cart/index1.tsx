@@ -6,7 +6,7 @@ import Price from "../format/price";
 import { useRestaurant } from "../../hooks";
 import { pay } from "../../services/zalo";
 import { message } from "../../utils/notification";
-import CartItem from "./cart-item";
+import CartItem from "../../pages/restaurant/cart1/cart-item1";
 import { useRecoilValue, useSetRecoilState } from "recoil";
 import {
   bookingsState,
@@ -145,14 +145,14 @@ function Cart() {
           size="large"
           fullWidth
           className="rounded-xl"
-          onClick={expaned ? book : nextStep}
-          // onClick={payFoods}
+          // onClick={expaned ? book : nextStep}
+          onClick={payFoods}
         >
-          {expaned ? <span>Đặt bàn với thực đơn</span> : <span>Tiếp theo</span>}
-          {/* Đặt */}
+          {/* {expaned ? <span>Đặt bàn với thực đơn</span> : <span>Tiếp theo</span>} */}
+          Đặt
         </Button>
       </Box>
-      {expaned && (
+      {/* {expaned && (
         <Box m={0} px={6} pt={4} pb={6}>
           <Button
             onClick={payFoods}
@@ -164,7 +164,7 @@ function Cart() {
             Chỉ đặt món ăn
           </Button>
         </Box>
-      )}
+      )} */}
     </Sheet>
   ) : (
     <></>

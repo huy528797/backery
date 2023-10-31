@@ -50,6 +50,17 @@ export interface Food {
   options: Option[];
 }
 
+export interface Food1 {
+  id: number;
+  name: string;
+  price: number;
+  description: string;
+  image: string;
+  categories: string[];
+  extras: Extra[];
+  options: Option[];
+}
+
 export interface Option {
   key: string;
   label: string;
@@ -76,6 +87,12 @@ export interface CartItem {
   note: string;
 }
 
+export interface CartItem1 {
+  quantity: number;
+  food: Food;
+  note: string;
+}
+
 export type Hours = [number, number, "AM" | "PM"];
 
 export interface Booking {
@@ -87,8 +104,21 @@ export interface Booking {
     hour: Hours;
     table: string;
     seats: number;
-    tableType: string;
   };
 }
 
-export type TabType = "info" | "menu" | "book" | "sale";
+export type TabType = "info" | "menu" | "book";
+
+export interface Booking1 {
+  id: string;
+  restaurant: Restaurant;
+  cart?: Cart;
+  bookingInfo?: {
+    date: Date;
+    hour: Hours;
+    table: string;
+    seats: number;
+  };
+}
+
+export type TabType1 = "info" | "menu" | "book";

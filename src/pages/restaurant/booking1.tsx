@@ -102,12 +102,12 @@ function Booking({ restaurant }: { restaurant: Restaurant }) {
         description="Bạn có muốn đặt bàn không?"
       >
         <Box p={6} className="zaui-box zaui-box-mb-0 zaui-box-flex zaui-box-justify-center ">
-          {/* <Button
+          <Button
               onClick={menu}
               fullWidth
             >
               Đặt món ăn
-            </Button> */}
+            </Button>
           <Button
             onClick={book}
             fullWidth

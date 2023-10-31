@@ -3,11 +3,11 @@ import { useState } from "react";
 import { useRecoilValue } from "recoil";
 import { Box, Tabs } from "zmp-ui";
 import { Restaurant } from "../../../models";
-import { menuState1 } from "../../../state";
+import { menuState } from "../../../state";
 import FoodItem from "./food";
 
 function MenuTable({ restaurant }: { restaurant: Restaurant }) {
-  const menu = useRecoilValue(menuState1);
+  const menu = useRecoilValue(menuState);
   const [selectedCategory, setSelectedCategory] = useState(
     menu.categories[0].id
   );

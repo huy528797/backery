@@ -6,7 +6,7 @@ import Price from "../format/price";
 import { useRestaurant } from "../../hooks";
 import { pay } from "../../services/zalo";
 import { message } from "../../utils/notification";
-import CartItem from "./cart-item";
+import CartItem from "./cart1/cart-item1";
 import { useRecoilValue, useSetRecoilState } from "recoil";
 import {
   bookingsState,
@@ -75,8 +75,8 @@ function Cart() {
 
   const currentTab = useRecoilValue(currentRestaurantTabState);
 
-  const book = () => {
-    setRestaurantTab("book");
+  const book1 = () => {
+    setRestaurantTab("book1");
   };
 
   const payFoods = async () => {
@@ -137,7 +137,7 @@ function Cart() {
       >
         <Title size="small">Tổng cộng ({cart.items.length} món)</Title>
         <Text className="ml-6 text-secondary font-semibold" size="xLarge" bold>
-          <Price amount={total} />
+          {/* <Price amount={total} /> */}
         </Text>
       </Box>
       <Box m={0} px={6} pt={6}>
@@ -145,7 +145,7 @@ function Cart() {
           size="large"
           fullWidth
           className="rounded-xl"
-          onClick={expaned ? book : nextStep}
+          onClick={expaned ? book1 : nextStep}
         >
           {expaned ? <span>Đặt bàn với thực đơn</span> : <span>Tiếp theo</span>}
         </Button>

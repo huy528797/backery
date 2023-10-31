@@ -4,9 +4,10 @@ import Distance from "../../components/distance";
 import DistrictName from "../../components/district-name";
 import { TabType } from "../../models";
 import Information from "./information";
-import Sale from "./sale";
 import Menu from "./menu";
+import Menu1 from "./menu11";
 import Booking from "./booking";
+import Booking1 from "./booking1";
 import { useRecoilState } from "recoil";
 import { currentRestaurantTabState } from "../../state";
 import React from "react";
@@ -72,15 +73,14 @@ function RestaurantDetail() {
               </Button>
             </Box>
             <Box flex justifyContent="center" mb={0}>
-              <TabItem tab="info">Thông tin</TabItem>
-              <TabItem tab="menu">Thực đơn</TabItem>
-              <TabItem tab="book">Đặt bàn</TabItem>
-              {/* <TabItem tab="sale">Thanh toán</TabItem> */}
+            <TabItem tab="info"> Thông tin </TabItem>
+              <TabItem tab="book1">Đặt bàn </TabItem>
+              <TabItem tab="menu1">Thực đơn</TabItem>
             </Box>
           </Box>
         </Box>
         {createElement(
-          { info: Information, menu: Menu, book: Booking, sale: Sale }[currentTab],
+          { info: Information, menu: Menu, menu1: Menu1, book: Booking, book1: Booking1 }[currentTab],
           { restaurant }
         )}
       </>

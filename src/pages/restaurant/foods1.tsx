@@ -6,7 +6,7 @@ import Price from "../format/price";
 import { useRestaurant } from "../../hooks";
 import { pay } from "../../services/zalo";
 import { message } from "../../utils/notification";
-import CartItem from "./cart-item";
+import CartItem from "./cart1/cart-item1";
 import { useRecoilValue, useSetRecoilState } from "recoil";
 import {
   bookingsState,
@@ -31,7 +31,7 @@ function CartDetail() {
     setTimeout(() => {
       document.querySelector(".sheet-backdrop")?.classList.add("backdrop-in");
     }, 300); // workaround for backdrop not showing
-  }; 
+  };
 
   return (
     <Box
@@ -146,10 +146,8 @@ function Cart() {
           fullWidth
           className="rounded-xl"
           onClick={expaned ? book : nextStep}
-          // onClick={payFoods}
         >
           {expaned ? <span>Đặt bàn với thực đơn</span> : <span>Tiếp theo</span>}
-          {/* Đặt */}
         </Button>
       </Box>
       {expaned && (
@@ -161,7 +159,7 @@ function Cart() {
             className="rounded-xl"
             variant="secondary"
           >
-            Chỉ đặt món ăn
+            Xác Nhận
           </Button>
         </Box>
       )}

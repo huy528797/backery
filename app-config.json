@@ -1,6 +1,6 @@
 {
   "app": {
-    "title": "ZaUI Restaurant",
+    "title": " Panda",
     "headerColor": "",
     "textColor": "black",
     "statusBarColor": "#f4f5f6",
@@ -15,7 +15,7 @@
   "template": {
     "primaryColor": "",
     "secondaryColor": "",
-    "serviceFee": 25000,
+    "serviceFee": "0",
     "searchBar": true
   },
   "debug": false,

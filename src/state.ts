@@ -47,11 +47,18 @@ export const positionState = selector<Location | undefined>({
 
 export const restaurantsState = selector<Restaurant[]>({
   key: "restaurants",
+  // get: async () => {
+  //   const response = await fetch(
+  //     "http://124.158.5.222:8000/VnetManager/api.jsp?node=Xuat_Chi_Nhanh&chart=TaiNguyen_zalo"
+  //   );
+  //   return await response.json();
+  // },
+
   get: () => [
     {
       id: 1,
       name: "Chi nhánh - Lê Thánh Tôn",
-      districtId: 5,
+      districtId: 1,
       rating: 4.5,
       location: {
         lat: 10.776463610730223,
@@ -101,7 +108,7 @@ export const restaurantsState = selector<Restaurant[]>({
 
 export const categoriesState = selector({
   key: "categories",
-  get: () => ["Chọn theo set", "Chọn theo món", "Đồ uống"],
+  get: () => ["Pizza", "Pasta", "Salad", "Sandwich", "Drink"],
 });
 
 export const menuState = selector({
@@ -110,8 +117,22 @@ export const menuState = selector({
     const categories = get(categoriesState);
     const foods = get(foodsState);
     return {
-      categories: categories.map((category, index) => ({
-        id: String(index),
+      categories: categories.map((category, index1) => ({
+        id: String(index1),
+        name: category,
+        foods: foods.filter((food) => food.categories.includes(category)),
+      })),
+    };
+  },
+});
+export const menuState1 = selector({
+  key: "menu1",
+  get: ({ get }) => {
+    const categories = get(categoriesState);
+    const foods = get(foodsState);
+    return {
+      categories: categories.map((category, index1) => ({
+        id: String(index1),
         name: category,
         foods: foods.filter((food) => food.categories.includes(category)),
       })),
@@ -121,6 +142,12 @@ export const menuState = selector({
 
 export const foodsState = selector({
   key: "foods",
+  // get: async () => {
+  //   const response = await fetch(
+  //     "http://124.158.5.222:8000/VnetManager/api.jsp?node=xuat_food&chart=TaiNguyen_zalo"
+  //   );
+  //   return await response.json();
+  // },
   get: () => [
     {
       id: 1,
@@ -128,7 +155,7 @@ export const foodsState = selector({
       price: 400000,
       image:
         "https://images.unsplash.com/photo-1604382355076-af4b0eb60143?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=687&q=80",
-      categories: ["Chọn theo món"],
+      categories: ["Pizza", "Pasta", "Salad", "Sandwich", "Drink"],
       description: `Pizza Hải Sản Xốt Pesto Với Hải Sản (Tôm, Mực) Nhân Đôi Cùng Với Nấm Trên Nền Xốt Pesto Đặc Trưng, Phủ Phô Mai Mozzarella Từ New Zealand Và Quế Tây.`,
       options: [
         {
@@ -175,7 +202,7 @@ export const foodsState = selector({
       price: 400000,
       image:
         "https://images.unsplash.com/photo-1555939594-58d7cb561ad1?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=687&q=80",
-      categories: ["Chọn theo set"],
+      categories: ["Pizza"],
       description: `Pizza Hải Sản Xốt Pesto Với Hải Sản (Tôm, Mực) Nhân Đôi Cùng Với Nấm Trên Nền Xốt Pesto Đặc Trưng, Phủ Phô Mai Mozzarella Từ New Zealand Và Quế Tây.`,
       options: [
         {
@@ -222,7 +249,7 @@ export const foodsState = selector({
       price: 400000,
       image:
         "https://images.unsplash.com/photo-1558030006-450675393462?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1631&q=80",
-      categories: ["Đồ uống"],
+      categories: ["Pizza", "Drink"],
       description: `Pizza Hải Sản Xốt Pesto Với Hải Sản (Tôm, Mực) Nhân Đôi Cùng Với Nấm Trên Nền Xốt Pesto Đặc Trưng, Phủ Phô Mai Mozzarella Từ New Zealand Và Quế Tây.`,
       options: [
         {
@@ -269,7 +296,7 @@ export const foodsState = selector({
       price: 400000,
       image:
         "https://images.unsplash.com/photo-1565958011703-44f9829ba187?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=765&q=80",
-      categories: ["Đồ uống"],
+      categories: ["Pizza", "Drink"],
       description: `Pizza Hải Sản Xốt Pesto Với Hải Sản (Tôm, Mực) Nhân Đôi Cùng Với Nấm Trên Nền Xốt Pesto Đặc Trưng, Phủ Phô Mai Mozzarella Từ New Zealand Và Quế Tây.`,
       options: [
         {
@@ -316,41 +343,27 @@ export const keywordState = atom({
   key: "keyword",
   default: "",
 });
-interface InnerModel {
-  alo: "aaa";
-}
-const sos = async (InnerModel) => {
-  const response = await fetch(
-    "http://124.158.5.222:8000/VnetManager/api.jsp?node=testAPI&chart=TaiNguyen_zalo&type=aaa"
-  );
-};
+
 export const districtsState = selector({
   key: "districts",
-  get: async () => {
-    const response = await fetch(
-      "http://124.158.5.222:8000/VnetManager/api.jsp?node=testAPI&chart=TaiNguyen_zalo&type=aaa"
-    );
-    return await response.json();
-
-    return [
-      {
-        id: 1,
-        name: "Quận 1",
-      },
-      {
-        id: 5,
-        name: "Quận 5",
-      },
-      {
-        id: 7,
-        name: "Quận 7",
-      },
-      {
-        id: 13,
-        name: "Thủ Đức",
-      },
-    ];
-  },
+  get: () => [
+    {
+      id: 1,
+      name: "Quận 1",
+    },
+    {
+      id: 5,
+      name: "Quận 5",
+    },
+    {
+      id: 7,
+      name: "Quận 7",
+    },
+    {
+      id: 13,
+      name: "Thủ Đức",
+    },
+  ],
 });
 
 export const selectedDistrictState = atom({

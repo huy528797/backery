@@ -62,9 +62,8 @@ const BookingDetail: FC<{
                         </>
                       }
                     />
-                    <Section left="Số ghế" right={booking.bookingInfo.seats} />
-                    <Section left="Loại bàn" right={booking.bookingInfo.tableType === 'normal' ? 'Bàn thường' : 'Bàn tiệc'} />
-                    <Section left="Bàn số" right={booking.bookingInfo.table} />
+                    <Section left="Bàn số" right={booking.bookingInfo.seats} />
+                    <Section left="Số ghế" right={booking.bookingInfo.table} />
                   </>
                 )}
                 <Section left="Chi tiết" right={<Price amount={total} />} />

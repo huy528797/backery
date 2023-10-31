@@ -22,7 +22,7 @@ const data = [
 async function thanhtoan(danhsachsanpham){
   const response = await fetch("http://124.158.5.222:8000/VnetManager/api.jsp?node=thanhtoan&chart=TaiNguyen_zalo" )
   // console.log(await response.text())
-  // alert(await response.text())
+  alert(await response.text())
   // {
   //   method: "GET", // or 'PUT'S
   //   headers: {
