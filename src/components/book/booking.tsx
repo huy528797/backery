@@ -54,7 +54,7 @@ const BookingItem: FunctionComponent<BookingItemProps> = ({ booking }) => {
             className="ml-6 text-secondary mb-0 whitespace-nowrap font-semibold"
             size="large"
           >
-            <Price amount={total} />
+            {/* <Price amount={total} /> */}
           </Text>
         </Box>
         <div className="border border-solid border-gray-100 rounded-xl">
