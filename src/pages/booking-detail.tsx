@@ -1,6 +1,6 @@
 import { FC, ReactNode, useState } from "react";
 import { Box, Button, Sheet, Text } from "zmp-ui";
-import Price from "../components/format/price";
+import Price from "./restaurant/price1";
 import { useBookingTotal } from "../hooks";
 import Time from "../components/format/time";
 import CartItem from "../components/cart/cart-item";
@@ -30,13 +30,13 @@ const BookingDetail: FC<{
   booking: Booking;
 }> = ({ children, booking }) => {
   const [total] = useBookingTotal(booking);
-  const [visible, setVisible] = useState(false);
+  const [visible1, setVisible] = useState(false);
 
   return (
     <>
       {children(() => setVisible(true))}
       {createPortal(
-        <Sheet visible={visible} onClose={() => setVisible(false)}>
+        <Sheet visible={visible1} onClose={() => setVisible(false)}>
           {booking && (
             <>
               <Box
@@ -66,7 +66,7 @@ const BookingDetail: FC<{
                     <Section left="Số ghế" right={booking.bookingInfo.table} />
                   </>
                 )}
-                <Section left="Chi tiết" right={<Price amount={total} />} />
+                <Section left="Tổng" right={<Price amount={total} />} />
               </div>
               {booking.cart && booking.cart.items.length ? (
                 <Box

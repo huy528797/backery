@@ -75,8 +75,8 @@ function Cart() {
 
   const currentTab = useRecoilValue(currentRestaurantTabState);
 
-  const book1 = () => {
-    setRestaurantTab("book1");
+  const book = () => {
+    setRestaurantTab("book");
   };
 
   const payFoods = async () => {
@@ -145,7 +145,7 @@ function Cart() {
           size="large"
           fullWidth
           className="rounded-xl"
-          onClick={expaned ? book1 : nextStep}
+          onClick={expaned ? book : nextStep}
         >
           {expaned ? <span>Đặt bàn với thực đơn</span> : <span>Tiếp theo</span>}
         </Button>

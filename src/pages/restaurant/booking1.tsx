@@ -45,7 +45,7 @@ function Booking({ restaurant }: { restaurant: Restaurant }) {
 
   const book = async () => {
     const serviceFee = getConfig((c) => c.template.serviceFee);
-    // await (serviceFee + total);
+    await (serviceFee + total);
     setBookings((bookings) => [
       ...bookings,
       {
@@ -82,7 +82,7 @@ function Booking({ restaurant }: { restaurant: Restaurant }) {
         p={6}
         className="bg-white fixed bottom-0 left-0 right-0 shadow z-10 border"
       >
-        <Button className="zaui-btn zaui-btn-primary zaui-btn-small mx-1 flex-none"
+        <Button className="rounded-xl"
           
           fullWidth
           onClick={() => {
@@ -106,13 +106,13 @@ function Booking({ restaurant }: { restaurant: Restaurant }) {
               onClick={menu}
               fullWidth
             >
-              Đặt món ăn
+              Thực đơn
             </Button>
           <Button
             onClick={book}
             fullWidth
           >
-            Xác nhận
+            Đặt bàn
           </Button>
         </Box>
       </Modal>

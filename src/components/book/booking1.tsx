@@ -48,7 +48,7 @@ const BookingItem: FunctionComponent<BookingItemProps> = ({ booking }) => {
           alignItems="center"
         >
           <Title size="small" className="whitespace-nowrap mb-0">
-            Booking ID: {booking.id}
+            Mã vận đơn: {booking.id}
           </Title>
           <Text
             className="ml-6 text-secondary mb-0 whitespace-nowrap font-semibold"

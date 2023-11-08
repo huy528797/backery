@@ -6,7 +6,7 @@ import BookingItem from "../components/book/booking";
 import { bookingsState } from "../state";
 
 const labels = {
-  upcoming: "Sắp đến",
+  upcoming: "Đơn của bạn",
   finished: "Hoàn thành",
 };
 

@@ -1,8 +1,24 @@
+import React, { useEffect } from "react";
 import { Box, Page } from "zmp-ui";
 import RestaurantDetail from "./restaurant/detail";
-import React from "react";
+import { useRecoilValue } from "recoil";
+import { popupState } from "../state";
+import Swal from "sweetalert2";
 
 function RestaurantPage() {
+  const popupResult = useRecoilValue(popupState);
+
+  useEffect(() => {
+    if (popupResult.length > 0) {
+      const firstPopup = popupResult[0];
+      firstPopup.then((result) => {
+        if (result.isConfirmed) {
+
+        }
+      });
+    }
+  });
+  
   return (
     <Page>
       <RestaurantDetail />

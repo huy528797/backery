@@ -38,6 +38,17 @@ export interface Category {
   name: string;
   foods: Food[];
 }
+export interface Category_ban {
+  id: number;
+  name: string;
+  ban: Ban[];
+}
+
+export interface Ban {
+  id: number;
+  name: string;
+  price: number;
+}
 
 export interface Food {
   id: number;
@@ -87,12 +98,6 @@ export interface CartItem {
   note: string;
 }
 
-export interface CartItem1 {
-  quantity: number;
-  food: Food;
-  note: string;
-}
-
 export type Hours = [number, number, "AM" | "PM"];
 
 export interface Booking {
@@ -107,18 +112,4 @@ export interface Booking {
   };
 }
 
-export type TabType = "info" | "menu" | "book";
-
-export interface Booking1 {
-  id: string;
-  restaurant: Restaurant;
-  cart?: Cart;
-  bookingInfo?: {
-    date: Date;
-    hour: Hours;
-    table: string;
-    seats: number;
-  };
-}
-
-export type TabType1 = "info" | "menu" | "book";
+export type TabType = "info" | "menu" | "book" | "menu11" | "book1";

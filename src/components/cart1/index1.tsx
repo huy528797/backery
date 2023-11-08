@@ -6,7 +6,7 @@ import Price from "../format/price";
 import { useRestaurant } from "../../hooks";
 import { pay } from "../../services/zalo";
 import { message } from "../../utils/notification";
-import CartItem from "../../pages/restaurant/cart1/cart-item1";
+import CartItem from "./cart-item1";
 import { useRecoilValue, useSetRecoilState } from "recoil";
 import {
   bookingsState,
@@ -50,7 +50,7 @@ function CartDetail() {
   );
 }
 
-function Cart() {
+function Cart1() {
   const cart = useRecoilValue(cartState);
   const total = useRecoilValue(totalState);
   const [expaned, setExpanded] = useState(false);
@@ -92,16 +92,16 @@ function Cart() {
     message("Đặt thức ăn thành công");
     navigate("/calendar/");
   };
-  const visible = useMemo(
+  const visible1 = useMemo(
     () =>
       cart.items.length > 0 &&
       location.pathname === "/restaurant" &&
       currentTab !== "book",
     [cart, location, currentTab]
   );
-  useEffect(() => setExpanded(false), [visible]);
+  useEffect(() => setExpanded(false), [visible1]);
 
-  return visible ? (
+  return visible1 ? (
     <Sheet
       ref={sheetRef}
       mask={expaned}
@@ -145,14 +145,14 @@ function Cart() {
           size="large"
           fullWidth
           className="rounded-xl"
-          // onClick={expaned ? book : nextStep}
-          onClick={payFoods}
+          onClick={expaned ? book : nextStep}
+          // onClick={payFoods}
         >
-          {/* {expaned ? <span>Đặt bàn với thực đơn</span> : <span>Tiếp theo</span>} */}
-          Đặt
+          {expaned ? <span>Đặt bàn với thực đơn</span> : <span>Tiếp theo</span>}
+          {/* Đặt */}
         </Button>
       </Box>
-      {/* {expaned && (
+      {expaned && (
         <Box m={0} px={6} pt={4} pb={6}>
           <Button
             onClick={payFoods}
@@ -164,11 +164,11 @@ function Cart() {
             Chỉ đặt món ăn
           </Button>
         </Box>
-      )} */}
+      )}
     </Sheet>
   ) : (
     <></>
   );
 }
 
-export default Cart;
+export default Cart1;

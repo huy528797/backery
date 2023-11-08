@@ -92,16 +92,16 @@ function Cart() {
     message("Đặt thức ăn thành công");
     navigate("/calendar/");
   };
-  const visible = useMemo(
+  const visible1 = useMemo(
     () =>
       cart.items.length > 0 &&
       location.pathname === "/restaurant" &&
       currentTab !== "book",
     [cart, location, currentTab]
   );
-  useEffect(() => setExpanded(false), [visible]);
+  useEffect(() => setExpanded(false), [visible1]);
 
-  return visible ? (
+  return visible1 ? (
     <Sheet
       ref={sheetRef}
       mask={expaned}
