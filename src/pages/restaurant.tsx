@@ -18,13 +18,13 @@ function RestaurantPage() {
       });
     }
   });
-  
+
   return (
     <Page>
       <RestaurantDetail />
       <Box height={200}></Box>
     </Page>
-  );
+  ); 
 }
 
 export default RestaurantPage;
