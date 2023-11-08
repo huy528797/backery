@@ -175,6 +175,7 @@ export const menuState = selector({
 
 export const foodsState = selector({
   key: "foods",
+
   // get: async () => {
   //   const response = await fetch(
   //     "http://124.158.5.222:8000/VnetManager/api.jsp?node=xuat_food&chart=TaiNguyen_zalo"
