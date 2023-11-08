@@ -19,8 +19,6 @@ function RestaurantPage() {
     }
   });
 
-  
-
   return (
     <Page>
       <RestaurantDetail />
