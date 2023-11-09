@@ -38,30 +38,8 @@ export interface Category {
   name: string;
   foods: Food[];
 }
-export interface Category_ban {
-  id: number;
-  name: string;
-  ban: Ban[];
-}
-
-export interface Ban {
-  id: number;
-  name: string;
-  price: number;
-}
 
 export interface Food {
-  id: number;
-  name: string;
-  price: number;
-  description: string;
-  image: string;
-  categories: string[];
-  extras: Extra[];
-  options: Option[];
-}
-
-export interface Food1 {
   id: number;
   name: string;
   price: number;
@@ -112,4 +90,4 @@ export interface Booking {
   };
 }
 
-export type TabType = "info" | "menu" | "book" | "menu11" | "book1";
+export type TabType = "info" | "menu" | "book";

@@ -31,7 +31,7 @@ function CartDetail() {
     setTimeout(() => {
       document.querySelector(".sheet-backdrop")?.classList.add("backdrop-in");
     }, 300); // workaround for backdrop not showing
-  }; 
+  };
 
   return (
     <Box
@@ -145,14 +145,12 @@ function Cart() {
           size="large"
           fullWidth
           className="rounded-xl"
-          // onClick={expaned ? book : nextStep}
-          onClick={payFoods}
+          onClick={expaned ? book : nextStep}
         >
-          {/* {expaned ? <span>Đặt bàn với thực đơn</span> : <span>Tiếp theo</span>} */}
-          Đặt
+          {expaned ? <span>Đặt bàn với thực đơn</span> : <span>Tiếp theo</span>}
         </Button>
       </Box>
-      {/* {expaned && (
+      {expaned && (
         <Box m={0} px={6} pt={4} pb={6}>
           <Button
             onClick={payFoods}
@@ -164,7 +162,7 @@ function Cart() {
             Chỉ đặt món ăn
           </Button>
         </Box>
-      )} */}
+      )}
     </Sheet>
   ) : (
     <></>

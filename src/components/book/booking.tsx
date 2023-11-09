@@ -25,8 +25,6 @@ const BookingItem: FunctionComponent<BookingItemProps> = ({ booking }) => {
     setBooking((bs) => bs.filter((booking) => booking.id !== id));
   };
 
-
-
   return (
     <Box flex alignItems="center" px={4}>
       <Swipeable
@@ -50,13 +48,13 @@ const BookingItem: FunctionComponent<BookingItemProps> = ({ booking }) => {
           alignItems="center"
         >
           <Title size="small" className="whitespace-nowrap mb-0">
-          Mã vận đơn: {booking.id}
+            Booking ID: {booking.id}
           </Title>
           <Text
             className="ml-6 text-secondary mb-0 whitespace-nowrap font-semibold"
             size="large"
           >
-            {/* <Price amount={total} /> */}
+            <Price amount={total} />
           </Text>
         </Box>
         <div className="border border-solid border-gray-100 rounded-xl">

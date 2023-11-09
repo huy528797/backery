@@ -7,9 +7,8 @@ import Header from "./header";
 import NavigationBar from "./navigation-bar";
 import RestaurantPage from "../pages/restaurant";
 import CalendarPage from "../pages/calendar";
-import Cart from "./cart1/index1";
+import Cart from "./cart";
 import { ConfigProvider, getConfig } from "./config-provider";
-import Swal from "sweetalert2";
 
 const MyApp = () => {
   return (
@@ -23,7 +22,7 @@ const MyApp = () => {
         <App>
           <SnackbarProvider>
             <ZMPRouter>
-            <Cart/>
+              <Cart />
               <Header />
               <AnimationRoutes>
                 <Route path="/" element={<HomePage />} />

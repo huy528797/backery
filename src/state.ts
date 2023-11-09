@@ -1,9 +1,7 @@
 import { atom, selector } from "recoil";
-import { clearStorage, getLocation, getUserInfo } from "zmp-sdk";
+import { getLocation, getUserInfo } from "zmp-sdk";
 import { Booking, Cart, Location, Restaurant, TabType } from "./models";
 import { calcCrowFliesDistance } from "./utils/location";
-import Swal from "sweetalert2";
-import { vijsOut } from "./utils/file";
 
 export const userState = selector({
   key: "user",
@@ -47,46 +45,8 @@ export const positionState = selector<Location | undefined>({
   },
 });
 
-export const popupState = selector({
-  key: "popup",
-  get: () => [
-    Swal.fire({
-      title: "Thông Báo",
-      text: "bạn có muốn tiếp tục ?",
-      icon: "question",
-      showCancelButton: true,
-      confirmButtonText: "Xác Nhận",
-      cancelButtonText: "Hủy",
-    }),
-  ],
-});
-
 export const restaurantsState = selector<Restaurant[]>({
   key: "restaurants",
-  // get: async () => {
-  //   const response = await fetch(
-  //     "http://124.158.5.222:8000/VnetManager/api.jsp?node=Xuat_Chi_Nhanh&chart=TaiNguyen_ZaloApp_test"
-  //   );
-  //   return await response.json();
-  // },
-  // get: async () => {
-  //  let responseTest =  vijsOut.post("Xuat_Chi_Nhanh", {});
-  // // .then((response) => {
-  // //   console.log("ssssssdsdsdsdsds");
-  // //   console.log(JSON.parse(response));
-  // // });
-  // // const response = await fetch(
-  // //   "http://124.158.5.222:8000/VnetManager/api.jsp?node=Xuat_Chi_Nhanh&chart=TaiNguyen_ZaloApp_test"
-  // // );
-  // Swal.fire({
-  //   title: "Error!",
-  //   text: "Do you want to continue",
-  //   icon: "error",
-  //   confirmButtonText: "Cool",
-  // }),
-  //   return "aaa";
-  // },
-
   get: () => [
     {
       id: 1,
@@ -150,37 +110,17 @@ export const menuState = selector({
     const categories = get(categoriesState);
     const foods = get(foodsState);
     return {
-      categories: categories.map((category, index1) => ({
-        id: String(index1),
+      categories: categories.map((category, index) => ({
+        id: String(index),
         name: category,
         foods: foods.filter((food) => food.categories.includes(category)),
       })),
     };
   },
 });
-// export const menuState1 = selector({
-//   key: "menu1",
-//   get: ({ get }) => {
-//     const categories = get(categoriesState);
-//     const foods = get(foodsState);
-//     return {
-//       categories: categories.map((category, index) => ({
-//         id: String(index),
-//         name: category,
-//         foods: foods.filter((food) => food.categories.includes(category)),
-//       })),
-//     };
-//   },
-// });22
 
 export const foodsState = selector({
   key: "foods",
-  // get: async () => {
-  //   const response = await fetch(
-  //     "http://124.158.5.222:8000/VnetManager/api.jsp?node=xuat_food&chart=TaiNguyen_zalo"
-  //   );
-  //   return await response.json();
-  // },
   get: () => [
     {
       id: 1,
@@ -368,22 +308,6 @@ export const foodsState = selector({
           ],
         },
       ],
-    },
-  ],
-});
-
-export const ban = selector({
-  key: "ban",
-  get: () => [
-    {
-      id: 1,
-      name: "Bàn thường",
-      price: 25000,
-    },
-    {
-      id: 2,
-      name: "Bàn tiệc",
-      price: 50000,
     },
   ],
 });

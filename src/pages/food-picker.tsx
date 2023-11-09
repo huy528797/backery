@@ -42,16 +42,16 @@ const FoodPicker: FC<{
         note,
         food: {
           ...food,
-          extras: food?.extras.map((e, index1) => ({
+          extras: food?.extras.map((e, index) => ({
             ...e,
             options: e.options.map((o) => ({
               ...o,
-              selected: extras[index1] === o.key,
+              selected: extras[index] === o.key,
             })),
           })),
-          options: food?.options.map((o, index1) => ({
+          options: food?.options.map((o, index) => ({
             ...o,
-            selected: options[index1],
+            selected: options[index],
           })),
         },
       };
@@ -107,13 +107,13 @@ const FoodPicker: FC<{
           </Box>
           <Box textAlign="left" className="overflow-y-auto">
             <hr />
-            {food.extras.map((extra, index1) => (
+            {food.extras.map((extra, index) => (
               <Box m={5} key={extra.key}>
                 <ExtraSelection
                   extra={extra}
                   onChange={(selected) =>
                     setExtras((o) => {
-                      o[index1] = selected;
+                      o[index] = selected;
                       return [...o];
                     })
                   }

@@ -53,7 +53,7 @@ function Nearest() {
   return (
     <>
       <Box mx={4} mt={5}>
-        <Header className="mt-6 mb-3 font-semibold">Cơ sở gần bạn nhất</Header>
+        <Header className="mt-6 mb-3 font-semibold">Gần bạn nhất</Header>
         {nearests.map((restaurant) => (
           <Box key={restaurant.id} mx={0} my={3}>
             <RestaurantItem
@@ -81,7 +81,7 @@ function Welcome() {
       </Avatar>
       <Text size="small">{user.name ? <>Chào, {user.name}!</> : "..."}</Text>
       <Text className="text-[25px] leading-[29px] font-bold">
-        Panda - Nhà hàng Lẩu & Nướng
+        Hôm nay bạn muốn ăn ở đâu?
       </Text>
     </>
   );
@@ -97,12 +97,12 @@ const HomePage = () => {
         {getConfig((c) => c.template.searchBar) && (
           <>
             <Inquiry />
-            {/* <Header className="mt-6 font-semibold">Phân loại nhanh</Header> */}
+            <Header className="mt-6 font-semibold">Phân loại nhanh</Header>
           </>
         )}
-        {/* <QuickFilter /> */}
+        <QuickFilter />
       </Box>
-      {/* <Popular /> */}
+      <Popular />
       <Suspense>
         <Nearest />
       </Suspense>

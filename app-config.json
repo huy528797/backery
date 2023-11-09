@@ -1,21 +1,15 @@
 {
   "app": {
-    "title": " Panda",
+    "title": "ZaUI Restaurant",
     "headerColor": "",
     "textColor": "black",
     "statusBarColor": "#f4f5f6",
-    "leftButton": "back",
-    "textAlign": "left",
-    "actionBarHidden": false,
-    "hideAndroidBottomNavigationBar": false,
-    "hideIOSSafeAreaBottom": false,
-    "selfControlLoading": false,
-    "statusBar": "normal"
+    "leftButton": "back"
   },
   "template": {
     "primaryColor": "",
     "secondaryColor": "",
-    "serviceFee": "0",
+    "serviceFee": 25000,
     "searchBar": true
   },
   "debug": false,

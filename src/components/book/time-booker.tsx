@@ -7,14 +7,14 @@ import React from "react";
 
 const { Title } = Text;
 
-export const TimeCell: FC<{ time: Hours; index1: number }> = ({
+export const TimeCell: FC<{ time: Hours; index: number }> = ({
   time,
-  index1,
+  index,
 }) => {
   const swiper = useSwiper();
 
   const slideInto = () => {
-    swiper.slideTo(index1);
+    swiper.slideTo(index);
   };
 
   return (
@@ -80,7 +80,7 @@ const TimeBooker: FunctionComponent<TimeBookerProps> = ({
       >
         {availableHours.map((hour, i) => (
           <SwiperSlide key={i}>
-            <TimeCell time={hour} index1={i} />
+            <TimeCell time={hour} index={i} />
           </SwiperSlide>
         ))}
       </Swiper>
